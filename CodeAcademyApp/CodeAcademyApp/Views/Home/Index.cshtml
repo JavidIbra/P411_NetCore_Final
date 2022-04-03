@@ -1,0 +1,276 @@
+﻿@model HomeViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+          integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+          integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="preloader"></div>
+    <section id="banner">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container justify-content-between">
+                    <div class="row">
+                        <a class="navbar-brand icon-brand" href="#">
+                            <img width="162"
+                                 height="50"
+                                 src="~/img/logo-footer.png"
+                                 loading="lazy" />
+                        </a>
+                        <button class="navbar-toggler"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="collapse navbar-collapse justify-content-end"
+                             id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Ana sehife/</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#info">Haqqimizda/</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#contact">Bizimle elaqe/</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="index" asp-controller="Group">Qruplarimiz</a>
+                                </li>
+
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Login">Login</a></li>
+                                 }
+                                else
+                                {
+                                    <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                    <li class="nav-item"><a class="nav-link" asp-controller="Account">@User.Identity.Name</a></li>
+                                 }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="owl-carousel owl-theme">
+
+                @foreach (var item in Model.banners)
+                {
+                    <div class="item" style="background-color:@item.Color">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <h1>@item.Title</h1>
+                                    <p>
+                                        @item.Text
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </header>
+    </section>
+
+    <section id="info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-left">
+                    <h2>Tədris</h2>
+                    <h2>Sahələri</h2>
+                    <img src="https://code.edu.az/wp-content/uploads/2021/07/sep-line.png" />
+                    <p>
+                        İnformasiya Texnologiyaları sahəsində bugünün <br />
+                        və gələcəyin ən tələb edilən istiqamətləri
+                    </p>
+                </div>
+                <div class="col-md-6 border" data-aos="fade-right">
+                    <div class="row">
+
+                        @foreach (var item in Model.educationCategories)
+                        {
+                            <div class="col-md-6 pt-5 px-5">
+
+                                <img src="~/img/educatimg/@item.Image"
+                                     width="76"
+                                     height="69" />
+
+                                <h3 class="mt-5">@item.Name</h3>
+                            </div>
+                        }
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info2">
+        <div class="container">
+            <div class="row title">
+                <div class="col-md-6">
+                    <h2>Niyə</h2>
+                    <h2>Code Academy?</h2>
+                    <img width="104"
+                         height="3"
+                         src="https://code.edu.az/wp-content/uploads/2021/07/sep-line.png"
+                         class="attachment-large size-large"
+                         alt="sep-line"
+                         loading="lazy" />
+                    <p>
+                        Biz dərsləri Zəmanətli Təhsil Sistemi ilə Beynəlxalq Sertifikasiya
+                        imtahanlarının kurrikulumu əsasında keçirik. Talant Mərkəzi,
+                        Mentor Sistemi kimi özəlliklər və müasir tədris metodları ilə
+                        onlara praktiki məşğələlər təklif edirik.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @foreach (var item in Model.services)
+                {
+                    <div class="col-md-6 block">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="image"
+                                     width="250"
+                                     height="220"
+                                     src="/img/serviceimg/@item.Image" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <h2>@item.Name</h2>
+                                <p>
+                                    @item.Text
+                                </p>
+                                <a href="">etrafli</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-5 text">
+                    <h2>sualin var?</h2>
+                    <h2>gel gorusek</h2>
+                    <p>
+                        Yüz dəfə eşitməkdənsə, bir dəfə görmək yaxşıdır. Bizimlə görüş
+                        təyin et, dərslərimiz, müəllimlərimiz və tədris prosesimizlə
+                        şəxsən tanış ol.
+                    </p>
+                </div>
+
+                <div class="col-md-6 contact-form">
+                    <form asp-action="Contact" class="" method="post">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label asp-for="@Model.contact.Name"></label>
+                                <input type="text" class="form-control" placeholder="Ad" asp-for="@Model.contact.Name" />
+                                <span class="small text-danger" asp-validation-for="@Model.contact.Name"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label asp-for="@Model.contact.Surname"></label>
+                                <input type="text" class="form-control" placeholder="Soyad" asp-for="@Model.contact.Surname" />
+                                <span class="small text-danger" asp-validation-for="@Model.contact.Surname"></span>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label asp-for="@Model.contact.PhoneNumber"></label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Telefon nomresi" asp-for="@Model.contact.PhoneNumber" />
+                                <span class="small text-danger" asp-validation-for="@Model.contact.PhoneNumber"></span>
+
+                            </div>
+
+                            <div class="col-md-12 form-group">
+
+                                <label asp-for="@Model.contact.EducationCategoryId"></label>
+                                <select class="form-control form-control-sm" asp-for="@Model.contact.EducationCategoryId">
+                                    @foreach (var item in Model.educationCategories)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary">
+                                    Muraciet et
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <p>2021 | Made with love by Javid</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <script src="jquery.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+</html>
+
+
