@@ -17,6 +17,7 @@ namespace CodeAcademyApp.Models.Entity
 
         public int GroupId { get; set; }
         public virtual Group Group { get; set; }
+        public int Mark { get; set; }
 
         public string Image { get; set; }
         [NotMapped]

@@ -102,6 +102,9 @@ namespace CodeAcademyApp.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("ColorEdit")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasMaxLength(500)
@@ -241,6 +244,9 @@ namespace CodeAcademyApp.Migrations
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Mark")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()

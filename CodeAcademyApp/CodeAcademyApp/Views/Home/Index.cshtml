@@ -94,9 +94,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <h1>@item.Title</h1>
+                                    <h1>@Html.Raw(item.Title)</h1>
                                     <p>
-                                        @item.Text
+                                        @Html.Raw(item.Text)
                                     </p>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                                      width="76"
                                      height="69" />
 
-                                <h3 class="mt-5">@item.Name</h3>
+                                <h3 class="mt-5"><p>@Html.Raw(item.Name)</p></h3>
                             </div>
                         }
                     </div>
@@ -177,9 +177,11 @@
                             </div>
 
                             <div class="col-md-6">
-                                <h2>@item.Name</h2>
+                                <h2>
+                                    <p> @Html.Raw(item.Name)</p>
+                                </h2>
                                 <p>
-                                    @item.Text
+                                 @Html.Raw(item.Text)
                                 </p>
                                 <a href="">etrafli</a>
                             </div>
@@ -235,7 +237,7 @@
                                 <select class="form-control form-control-sm" asp-for="@Model.contact.EducationCategoryId">
                                     @foreach (var item in Model.educationCategories)
                                     {
-                                        <option value="@item.Id">@item.Name</option>
+                                        <option value="@item.Id"><p>  @Html.Raw(item.Name)  </p> </option>
                                     }
                                 </select>
                             </div>

@@ -186,3 +186,4 @@ C:\Users\Javid\Desktop\CodeAcademyApp\CodeAcademyApp\CodeAcademyApp\obj\Debug\ne
 C:\Users\Javid\Desktop\CodeAcademyApp\CodeAcademyApp\CodeAcademyApp\obj\Debug\net5.0\Razor\Views\Student\SingleStudent.cshtml.g.cs
 C:\Users\Javid\Desktop\CodeAcademyApp\CodeAcademyApp\CodeAcademyApp\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Javid\Desktop\CodeAcademyApp\CodeAcademyApp\CodeAcademyApp\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Javid\Desktop\CodeAcademyApp\CodeAcademyApp\CodeAcademyApp\obj\Debug\net5.0\Razor\Views\Teacher\Index.cshtml.g.cs

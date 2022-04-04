@@ -87,11 +87,16 @@ namespace CodeAcademyApp.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Title,Text,Id")] Banner banner)
+        public async Task<IActionResult> Edit(int id, [Bind("Title,Text,Id,Color,ColorEdit")] Banner banner)
         {
             if (id != banner.Id)
             {
                 return NotFound();
+            }
+
+            if (banner.ColorEdit!=null)
+            {
+                banner.Color = banner.ColorEdit;
             }
 
             if (ModelState.IsValid)

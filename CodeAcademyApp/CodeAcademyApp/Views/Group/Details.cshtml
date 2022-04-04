@@ -64,10 +64,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-2">
-                        <h1>group: @Model.Name</h1>
-                        <p>muellim adi: @Model.Teacher.Name</p>
-                        <p>telebe sayi: @Model.Students.Count</p>
-                        <p>Tehsil categoriyasi: @Model.EducationCategory.Name</p>
+                        <h1>Qroup: @Html.Raw(Model.Name)</h1>
+                        <p>Müəllim adı: @Model.Teacher.Name</p>
+                        <p>Tələbə sayı: @Model.Students.Count</p>
+                        <p>Təhsil kategoriyası: @Model.EducationCategory.Name</p>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                         <div class="card" style="width: 18rem">
                             <img class="card-img" src="/img/studentimg/@item.Image" />
                             <div class="card-body">
-                                <h5 class="card-title">Telebe: @item.Name</h5>
+                                <h5 class="card-title">Tələbə: <p> @Html.Raw(item.Name)</p></h5>
                                 <p class="card-text">Email:@item.Email</p>
                                 <a asp-action="SingleStudent" asp-controller="Student" asp-route-id="@item.Id" class="btn btn-primary">Etrafli</a>
                             </div>

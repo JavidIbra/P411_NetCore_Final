@@ -1,0 +1,172 @@
+﻿@model TeacherViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+          integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+          integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="~/css/groups.css" />
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar-expand-lg navbar-light justify-content-center">
+            <div class="container">
+                <div class="row">
+                    <a class="navbar-brand" href="#">
+                        <img width="162"
+                             height="50"
+                             src="~/img/logo-footer.png"
+                             loading="lazy" />
+                    </a>
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end"
+                         id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="index" asp-controller="Home">Ana sehife/</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="index" asp-controller="Home">Haqqimizda/</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="index" asp-controller="Home">Bizimle elaqe/</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="index" asp-controller="Group">Qruplarimiz</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h2 class="mt-5">Groups</h2>
+            </div>
+        </nav>
+    </header>
+
+    <div class="row">
+
+        @*Beshir411
+        Beshir12@*@
+
+        @*@foreach (var item in Model.Teachers)
+        {
+            @if (item.Name == Model.Teacher.Name)
+            {*@
+                @foreach (var group in Model.Teacher.Groups)
+                {
+
+                    <div class="col-md-4 group-wrapper">
+                        <div class="card text-center" style="width: 18rem">
+                            <div class="text-center pt-2">
+
+                                <img class="card-img" src="~/img/educatimg/@group.Image" />
+
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Group: @group.Name</h5>
+                                <p class="card-text">muellim : @group.Teacher.Name</p>
+                                <p class="card-text">telebe sayi: @group.Students.Count()</p>
+
+                                <a asp-action="Details" asp-controller="Teacher" asp-route-id="@group.Id" class="btn btn-primary">Etrafli</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            @*}
+        }*@
+
+    </div>
+
+
+    @*<section id="blocks">
+            <div class="container">
+                <div class="row mb-5 align-items-center justify-content-start">
+                    <ul class="me-auto mb-2 mb-lg-0 list">
+
+                        @foreach (var item in Model.EducationCategories)
+                        {
+                            <li class="nav-item item" data-filter="@item.Name.ToLower().Replace(" ","-")">
+                                <a class="nav-link">@item.Name/ </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="row">
+
+                    @foreach (var item in Model.Groups)
+                    {
+
+                        <div class="col-md-4 group-wrapper @(item.EducationCategory.Name.ToLower().Replace(" ","-"))">
+                            <div class="card text-center" style="width: 18rem">
+                                <div class="text-center pt-2">
+
+                                    <img class="card-img" src="~/img/educatimg/@item.Image" />
+
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Group: @item.Name</h5>
+                                    <p class="card-text">muellim : @item.Teacher.Name</p>
+                                    <p class="card-text">telebe sayi: @item.Students.Count()</p>
+
+                                    <a asp-action="Details" asp-controller="Group" asp-route-id="@item.Id" class="btn btn-primary">Etrafli</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>*@
+
+    <section id="footer">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <p>2021 | Made with love by Javid</p>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script>
+
+
+        $(".item").on("click", function () {
+
+            $(".item").removeClass("active");
+            $(this).addClass("active");
+
+            $(".group-wrapper").addClass("d-none");
+            let elem = $(this).data('filter');
+            $("." + elem).removeClass("d-none");
+
+        });
+
+    </script>
+</body>
+</html>
+
+

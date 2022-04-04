@@ -75,7 +75,7 @@
                     @foreach (var item in Model.EducationCategories)
                     {
                         <li class="nav-item item" data-filter="@item.Name.ToLower().Replace(" ","-")">
-                            <a class="nav-link">@item.Name/ </a>
+                            <a class="nav-link"> <p>@Html.Raw(item.Name)</p> </a>
                         </li>
                     }
                 </ul>
@@ -93,7 +93,7 @@
 
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Group: @item.Name</h5>
+                                <h5 class="card-title">Group: @Html.Raw(item.Name)</h5>
                                 <p class="card-text">muellim : @item.Teacher.Name</p>
                                 <p class="card-text">telebe sayi: @item.Students.Count()</p>
 

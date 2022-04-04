@@ -33,7 +33,7 @@ namespace CodeAcademyApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Contact( Contact contact)
         {
-            return Json(contact);
+            //return Json(contact);
             if (!ModelState.IsValid) return RedirectToAction("Index", "Home");
 
             await db.Contacts.AddAsync(contact);

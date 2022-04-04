@@ -1,9 +1,8 @@
 ﻿using CodeAcademyApp.DAL;
 using CodeAcademyApp.Models.ViewModels;
-using CodeAcademyApp.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CodeAcademyApp.Controllers
@@ -40,6 +39,12 @@ namespace CodeAcademyApp.Controllers
             var group = await db.Groups.Include(x=>x.Teacher).Include(x => x.Students).Include(x => x.EducationCategory)
 
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (group.Students.Count()==0)
+            {
+                return Content("Group-a telebe elave olunmayib");
+            }
+
             if (group == null)
             {
                 return NotFound();

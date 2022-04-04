@@ -52,6 +52,7 @@ namespace CodeAcademyApp.Controllers
 
             AppUser loggingUser = await userManager.FindByNameAsync(lvm.UserName);
 
+
             if (loggingUser == null)
             {
                 ModelState.AddModelError("", "Email or password is wrong");
@@ -77,8 +78,16 @@ namespace CodeAcademyApp.Controllers
                 return View(lvm);
             }
 
-            return RedirectToAction("index", "home");
+                bool available = User.IsInRole("Teacher");
 
+            if (available)
+            {
+                string name = loggingUser.FullName;
+               int found = name.IndexOf(" ");
+                TempData["name"]  =  name.Remove(found+1);
+                return RedirectToAction("Index", "Teacher" /*, ("/"+name1)*/);
+            }
+                return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Logout()

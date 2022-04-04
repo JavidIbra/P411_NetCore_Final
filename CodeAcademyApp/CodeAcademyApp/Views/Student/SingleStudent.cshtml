@@ -71,11 +71,11 @@
 
                     <div class="col-md-7 mt-5">
 
-                        <h1>telebe: @Model.Name</h1>
-                        <p>telebe bali: 70</p>
-                        <p>group: @Model.Group.Name</p>
-                        <p>Muellim adi: @Model.Group.Teacher.Name </p>
-                        <p>Tehsil categoriyasi: @Model.Group.EducationCategory.Name</p>
+                        <h1>Tələbə: <p>  @Html.Raw(Model.Name)  </p> </h1>
+                        <p>Tələbə balı: 70</p>
+                        <p>Qroup: @Model.Group.Name</p>
+                        <p>Müəllim adı: @Model.Group.Teacher.Name </p>
+                        <p>Təhsil kategoriyası: @Model.Group.EducationCategory.Name</p>
                         <p>Email: @Model.Email</p>
                         <p>Telefon: @Model.PhoneNumber</p>
                     </div>

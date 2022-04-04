@@ -15,5 +15,6 @@ namespace CodeAcademyApp.Models.Entity
 
         [Required, MaxLength(200)]
         public string Color { get; set; }
+        public string ColorEdit { get; set; }
     }
 }
